@@ -1,6 +1,6 @@
 import './bootstrap';
 
-import { checkLoggedIn, register, login, logout } from './auth';
+import { checkLoggedIn, register, login, logout, checkAuth } from './auth';
 
 const handleLoggedInStatus = async () => {
   const loggedIn = await checkLoggedIn();
@@ -11,6 +11,9 @@ const handleLoggedInStatus = async () => {
     console.log('User is not logged in');
     // Update UI accordingly (e.g., show login form)
   }
+
+  const data = await checkAuth();
+  console.log(data);
 };
 
 window.onload = handleLoggedInStatus; // Check login status on page load
